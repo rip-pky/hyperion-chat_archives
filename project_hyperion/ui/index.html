@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Hyperion</title>
+    <link rel="stylesheet" href="styles.css" />
+    <script src="qrc:///qtwebchannel/qwebchannel.js"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <main class="app-shell">
+        <aside class="sidebar">
+            <div class="brand-panel">
+                <h1>Hyperion</h1>
+                <p>Comunidade self-hosted</p>
+            </div>
+            <div class="community-panel">
+                <div class="community-header">
+                    <span>Comunidades</span>
+                    <button id="create-community">Nova</button>
+                </div>
+                <div id="server-list" class="server-list"></div>
+            </div>
+        </aside>
+
+        <section class="workspace">
+            <div class="channel-panel">
+                <div class="channel-header">
+                    <div>
+                        <strong id="community-name">Carregando...</strong>
+                        <p id="community-status">Selecione a comunidade para ver canais.</p>
+                    </div>
+                    <button id="create-channel">Canal</button>
+                </div>
+                <div id="channel-list" class="channel-list"></div>
+            </div>
+
+            <section class="chat-panel">
+                <div class="chat-header">
+                    <div>
+                        <h2 id="channel-title">#geral</h2>
+                        <p id="chat-subtitle">Escolha um canal para começar.</p>
+                    </div>
+                    <button id="upload-media">Upload</button>
+                </div>
+                <div id="chat-output" class="chat-output"></div>
+                <div class="chat-composer">
+                    <input id="chat-input" type="text" placeholder="Digite sua mensagem aqui..." />
+                    <button id="chat-send">Enviar</button>
+                </div>
+            </section>
+
+            <aside class="member-panel">
+                <div class="member-header">
+                    <span>Membros</span>
+                </div>
+                <div class="member-list">
+                    <div class="member-card">Convidado • Offline</div>
+                </div>
+            </aside>
+        </section>
+    </main>
+</body>
+</html>

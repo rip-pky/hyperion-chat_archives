@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hyperion Community</title>
+    <link rel="stylesheet" href="community_template.css" />
+    <script src="community_template.js" defer></script>
+</head>
+<body>
+    <div class="app-shell">
+        <header class="community-header">
+            <div class="community-meta">
+                <div class="community-avatar"></div>
+                <div>
+                    <h1>Hyperion Nexus</h1>
+                    <p>Rede self-hosted para conversas privadas e moderadas.</p>
+                </div>
+            </div>
+            <div class="community-banner">BANNER DA COMUNIDADE</div>
+        </header>
+
+        <aside class="sidebar">
+            <section class="section">
+                <h2>Canais</h2>
+                <ul id="channel-list" class="channel-list"></ul>
+                <button id="create-channel">+ Novo canal</button>
+            </section>
+            <section class="section">
+                <h2>Membros</h2>
+                <ul id="member-list" class="member-list"></ul>
+            </section>
+        </aside>
+
+        <main class="chat-area">
+            <section class="chat-topbar">
+                <div>
+                    <h2 id="active-channel"># geral</h2>
+                    <p>Chat central da comunidade</p>
+                </div>
+                <button id="refresh-chat">Atualizar</button>
+            </section>
+
+            <section id="chat-log" class="chat-log"></section>
+
+            <form id="chat-form" class="chat-form">
+                <input id="chat-input" type="text" placeholder="Digite sua mensagem..." autocomplete="off" />
+                <button type="submit">Enviar</button>
+            </form>
+        </main>
+    </div>
+</body>
+</html>

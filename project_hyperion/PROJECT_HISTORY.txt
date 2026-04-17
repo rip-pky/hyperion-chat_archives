@@ -1,0 +1,76 @@
+Project Hyperion - Histórico de mudanças e comentário do projeto
+
+Data: 16 de abril de 2026
+
+Este arquivo descreve em detalhes toda a estrutura inicial criada para o Project Hyperion, incluindo componentes, organização de pastas, melhorias de segurança e ajustes de desenvolvimento.
+
+1. Estrutura inicial do projeto
+   - Criado `CMakeLists.txt` para o build com Qt6.
+   - Adicionado `README.md` com instruções de build, configuração de segurança e documentação.
+   - Criado diretório `src/` para o código C++.
+   - Criado diretório `backend/` para o watchdog Python e arquivos de configuração.
+   - Criado diretório `docs/` com duas subpastas:
+     - `docs/html/` para documentação completa em HTML.
+     - `docs/webclip/` para versão leve de webclip.
+
+2. Frontend C++ e interface
+   - `src/main.cpp`: inicialização do `QApplication` e janela principal.
+   - `src/mainwindow.h` e `src/mainwindow.cpp`: janela principal com:
+     - campo de chat (`QTextEdit` para histórico e `QLineEdit` para entrada)
+     - lista de usuários (`QListWidget`)
+     - botão de upload de mídia (`QPushButton`)
+   - UI inicial com estética "Dark Gamer" inspirada em Discord 2017.
+   - Implementada lógica de envio de texto e upload de mídia.
+   - Adicionado `src/errordialog.h` e `src/errordialog.cpp` para diálogo customizado de erro.
+   - Erros de socket e falhas de upload agora abrem um `QDialog` estilizado.
+
+3. Segurança de mídia em RAM
+   - `src/media_buffer.h` e `src/media_buffer.cpp` criados.
+   - Implementado carregamento de arquivo em `QByteArray` totalmente em RAM.
+   - Usado `memset` para sobrescrever dados do buffer antes de liberar.
+   - O buffer é limpo e reduzido (`squeeze`) após o envio.
+
+4. Comunicação segura
+   - `src/secure_socket_client.h` e `src/secure_socket_client.cpp` criados.
+   - Conexão TLS via `QSslSocket` com `connectToHostEncrypted`.
+   - Protocolo simples de quadro com tipo de mensagem e comprimento em big-endian.
+   - Envio de mensagens de texto e mídia através de frames `TEXT` e `MEDI`.
+   - Implementado handshake inicial com HWID JSON.
+   - Eventos de erro e mensagens recebidas gerenciados via sinais.
+
+5. HWID e algoritmo de identificação
+   - `src/hwid_utils.h` e `src/hwid_utils.cpp` criados.
+   - Geração de HWID segura com `QCryptographicHash::Sha256` baseada em informações do sistema.
+   - HWID usado no handshake inicial com o servidor.
+
+6. Tema MD3 e estilo moderno
+   - `src/md3_theme.h` e `src/md3_theme.cpp` criados.
+   - Aplicação de tema Material Design 3 (MD3) no `QApplication`.
+   - Estilo escuro com cores frias e controles redondos.
+
+7. Backend Python de segurança
+   - `backend/watchdog.py` criado como watchdog de servidor/TV Box ARM.
+   - Autenticação via HWID com `hwid_allowlist.json`.
+   - Rate limiting com bloqueio de IP por brute force/spam.
+   - Verificação de integridade de mídia por hashes SHA-256 com `blacklist_hashes.json`.
+   - Servidor TLS configurado usando `ssl.create_default_context`.
+   - Arquivos de configuração moveidos para `backend/`.
+
+8. Documentação e arquivos auxiliares
+   - `docs/html/index.html`: página detalhada de documentação do projeto.
+   - `docs/webclip/index.html`: versão otimizada para webclip e pré-visualizações.
+   - `.gitignore` criado para ignorar diretórios de build, caches Python e arquivos temporários.
+   - `.vscode/tasks.json` criado para configurar e compilar o projeto no VS Code.
+   - `.vscode/launch.json` atualizado para depuração C++ e execução Python.
+
+9. Ajustes de build e facilidades
+   - `CMakeLists.txt` atualizado com `CMAKE_AUTOMOC ON` e `CMAKE_AUTORCC ON`.
+   - Incluído `src/errordialog.cpp` no build.
+   - `README.md` atualizado com instruções de segurança, compilação e execução.
+
+10. Observações gerais
+   - A arquitetura foi pensada para privacidade e performance, mantendo o processamento de mídia em RAM e reduzindo escritas em disco.
+   - O sistema foi estruturado para ser modular, permitindo evolução rápida na interface e no backend de segurança.
+   - A pasta `backend/` agora concentra todos os componentes do servidor de segurança, separada do frontend C++.
+
+Use este arquivo como referência do que foi feito e como ponto de partida para continuar o desenvolvimento.
