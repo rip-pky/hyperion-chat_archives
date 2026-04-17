@@ -1,0 +1,7 @@
+<RCC>
+    <qresource prefix="/ui">
+        <file>../ui/index.html</file>
+        <file>../ui/styles.css</file>
+        <file>../ui/app.js</file>
+    </qresource>
+</RCC>

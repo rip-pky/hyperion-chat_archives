@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Project Hyperion - Perfil e Temas</title>
+    <style>
+        body { background: #070b13; color: #e7eaf9; font-family: Inter, sans-serif; margin: 0; padding: 32px; }
+        .container { max-width: 960px; margin: auto; }
+        .panel { background: #111726; border: 1px solid #22345b; border-radius: 24px; padding: 28px; }
+        h1, h2, h3 { color: #94b3ff; }
+        p { line-height: 1.7; }
+        ul { margin-left: 20px; }
+        .note { background: #0f1726; border-left: 4px solid #5e8bff; padding: 16px; border-radius: 14px; margin-top: 20px; }
+        pre { background: #0b1220; padding: 16px; border-radius: 14px; overflow-x: auto; border: 1px solid #1c2a4c; }
+        a { color: #a3b8ff; text-decoration: none; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="panel">
+            <h1>Personalização de Perfil</h1>
+            <p>O Project Hyperion permite que cada jogador configure seu perfil com nickname, status pessoal e tema de interface.</p>
+
+            <h2>Como usar</h2>
+            <ol>
+                <li>Clique no botão <strong>Perfil</strong> no canto superior direito da área de chat.</li>
+                <li>Edite seu <strong>apelido</strong> para exibir seu nome no painel.</li>
+                <li>Defina um <strong>status</strong> para informar sua disponibilidade ou situação de jogo.</li>
+                <li>Escolha um <strong>tema</strong> para alterar a aparência do app.</li>
+                <li>Ative ou desative a opção <strong>Mostrar como online</strong>.</li>
+            </ol>
+
+            <h2>Temas disponíveis</h2>
+            <ul>
+                <li><strong>Dark Gamer</strong>: visual escuro com contraste gamer e bordas suaves.</li>
+                <li><strong>Material Design 3</strong>: aparência moderna baseada em MD3 com controle de cores e tipografia.</li>
+                <li><strong>Stealth Console</strong>: tema minimalista inspirado em painéis stealth e HUD de jogo.</li>
+            </ul>
+
+            <h2>Recursos de personalização</h2>
+            <ul>
+                <li><strong>Nickname:</strong> nome exibido no topo da janela e em notificações.</li>
+                <li><strong>Status:</strong> mensagem curta visível ao passar o mouse sobre o perfil.</li>
+                <li><strong>Disponibilidade:</strong> indicador online/offline no perfil.</li>
+                <li><strong>Aplicação instantânea:</strong> mudanças são aplicadas imediatamente após salvar.</li>
+            </ul>
+
+            <div class="note">
+                <strong>Nota:</strong> o mecanismo de perfil foi projetado para ser extensível. Você pode adicionar avatar, tags de guilda e badges no futuro.
+            </div>
+
+            <h2>Arquivos envolvidos</h2>
+            <ul>
+                <li><code>src/mainwindow.h</code> e <code>src/mainwindow.cpp</code>: UI principal e integração de perfil.</li>
+                <li><code>src/profiledialog.h</code> e <code>src/profiledialog.cpp</code>: diálogo de edição de perfil.</li>
+                <li><code>src/md3_theme.cpp</code>: tema MD3 aplicado ao app.</li>
+            </ul>
+
+            <h2>Próximos recursos sugeridos</h2>
+            <ul>
+                <li>Avatar customizado por upload ou gravatar</li>
+                <li>Badge de moderador, VIP ou rank de jogador</li>
+                <li>Preferências de notificação e presença</li>
+            </ul>
+
+            <p><a href="index.html">Voltar à documentação completa</a></p>
+        </div>
+    </div>
+</body>
+</html>
