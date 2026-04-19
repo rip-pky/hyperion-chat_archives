@@ -58,6 +58,39 @@ Project Hyperion é um cliente de chat C++ com foco em:
 - rate limiting anti-spam e brute force
 - verificação de integridade de conteúdo proibido via `backend/blacklist_hashes.json`
 
+### Sistema Backend em Assembly (Novo)
+- Sistema simples em x86-64 assembly para administração de RAM, armazenamento e acesso à rede via protocolos WiFi
+- Localizado em `asm_backend_system/`
+- Gerencia alocação de memória, operações de arquivo e conexões de socket usando APIs do sistema
+- Leve em idle, eficiente para host
+- Scripts de build: `build.bat` (Windows) e `build.sh` (Linux) para compilar em `.img` e adicionar ao git
+
+## Como usar
+
+### Desenvolvimento
+- Consulte `docs/markdown/development/DeveloperGuide.md` para guias de ambiente e modificação de código.
+- Para visão geral do projeto: `docs/markdown/getting_started/ProjectOverview.md`.
+
+### Deploy e Self-Hosting
+- Guia de deploy: `docs/markdown/deploy/Deploy.md`.
+- Hospedagem de comunidade: `docs/markdown/deploy/CommunityHosting.md`.
+- Comunidades self-hosted: `docs/markdown/self_hosted/SelfHostedCommunity.md`.
+
+### Packaging
+- Visão geral: `docs/markdown/packaging/PackagingGuide.md`.
+- Windows: `docs/markdown/packaging/WindowsPackage.md`.
+- Linux: `docs/markdown/packaging/LinuxPackage.md`.
+- macOS: `docs/markdown/packaging/MacPackage.md`.
+
+### Legacy
+- Versão web PHP: `docs/markdown/legacy/LegacyWeb.md`.
+- Linux legacy: `docs/markdown/legacy/LegacyLinux.md`.
+
+### Sistema ASM Backend
+- Para compilar: execute `asm_backend_system/build.bat` (Windows) ou `asm_backend_system/build.sh` (Linux).
+- Requer NASM instalado.
+- Gera `asm_system.img` pronto para commit no git.
+
 ## Como compilar
 
 ### Requisitos
@@ -130,3 +163,4 @@ run_project.bat
 - O projeto separa frontend e backend para ampliar segurança e testes
 - A pasta `backend/` contém o watchdog Python separado do cliente C++
 - O sistema foi pensado para uma pipeline de segurança ARM-friendly
+
